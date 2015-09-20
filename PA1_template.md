@@ -1,7 +1,7 @@
 ---
 title: "Reproducible Research: Peer Assessment 1"
 output: 
-html_document:
+html_document: 
 keep_md: true
 ---
 
@@ -158,7 +158,7 @@ For this part the weekdays() function may be of some help here. Use the dataset 
 ```r
 # Create a new factor variable in the dataset with two levels – “weekday” and “weekend” 
 # indicating whether a given date is a weekday or weekend day.
-cData$day <- sapply(cData$date, function(x) if (is.weekend(x)){ x <- "weekend" } else { x <- "weekday" })
+cData$day <- factor(ifelse(is.weekend(cData$date),"weekend","weekday"))
 
 # Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval
 # (x-axis) and the average number of steps taken, averaged across all weekday days or weekend 
