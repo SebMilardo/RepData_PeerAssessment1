@@ -11,6 +11,7 @@ keep_md: true
 ```r
 library(ggplot2)
 library(chron)
+library(dplyr)
 
 # Load the data
 setwd("~/R/RepData_PeerAssessment1")
@@ -158,7 +159,7 @@ For this part the weekdays() function may be of some help here. Use the dataset 
 ```r
 # Create a new factor variable in the dataset with two levels – “weekday” and “weekend” 
 # indicating whether a given date is a weekday or weekend day.
-cData$day <- factor(ifelse(is.weekend(cData$date),"weekend","weekday"))
+cData <- mutate(cData, day = factor(is.weekend(date),labels = c("weekend","weekday")))
 
 # Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval
 # (x-axis) and the average number of steps taken, averaged across all weekday days or weekend 
